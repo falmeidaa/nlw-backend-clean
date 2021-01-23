@@ -67,4 +67,12 @@ describe('OrphanageController', () => {
     const httResponse = sut.handle(httpRequest)
     expect(httResponse.statusCode).toBe(400)
   })
+
+  test('Should return 400 if no about is provided', () => {
+    const sut = new OrphanageController()
+    const httpRequest = mockHttpRequest()
+    delete httpRequest.body.longitude
+    const httResponse = sut.handle(httpRequest)
+    expect(httResponse.statusCode).toBe(400)
+  })
 })
