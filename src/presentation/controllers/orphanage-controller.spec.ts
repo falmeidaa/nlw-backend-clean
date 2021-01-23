@@ -68,6 +68,14 @@ describe('OrphanageController', () => {
     expect(httResponse.statusCode).toBe(400)
   })
 
+  test('Should return 400 if no about is provided', () => {
+    const sut = new OrphanageController()
+    const httpRequest = mockHttpRequest()
+    delete httpRequest.body.about
+    const httResponse = sut.handle(httpRequest)
+    expect(httResponse.statusCode).toBe(400)
+  })
+
   test('Should return 400 if no instructions is provided', () => {
     const sut = new OrphanageController()
     const httpRequest = mockHttpRequest()
@@ -76,10 +84,10 @@ describe('OrphanageController', () => {
     expect(httResponse.statusCode).toBe(400)
   })
 
-  test('Should return 400 if no about is provided', () => {
+  test('Should return 400 if no opening_hours is provided', () => {
     const sut = new OrphanageController()
     const httpRequest = mockHttpRequest()
-    delete httpRequest.body.longitude
+    delete httpRequest.body.opening_hours
     const httResponse = sut.handle(httpRequest)
     expect(httResponse.statusCode).toBe(400)
   })
