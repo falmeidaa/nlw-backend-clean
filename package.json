@@ -4,6 +4,7 @@
   "description": "NLW Clean",
   "main": "index.js",
   "devDependencies": {
+    "@types/faker": "^5.1.5",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
@@ -13,6 +14,7 @@
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "faker": "^5.1.0",
     "git-commit-msg-linter": "^3.0.0",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
