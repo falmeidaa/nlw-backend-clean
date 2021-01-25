@@ -2,7 +2,7 @@ import faker from 'faker'
 import { OrphanageModel } from '../../domain/models/orphanage'
 import { SaveOrphanage, SaveOrphanageModel } from '../../domain/usecases/save-orphanage'
 import { MissingParamError } from '../errors/missing-param-error'
-import { badRequest, ok } from '../helpers/http-helper'
+import { badRequest, ok, serverError } from '../helpers/http-helper'
 import { HttpRequest } from '../protocols/http/http'
 import { SaveOrphanageController } from './save-orphanage-controller'
 
@@ -105,7 +105,14 @@ describe('OrphanageController', () => {
     expect(saveOrphanageSpy.params).toEqual(httpRequest.body)
   })
 
-  test('Should return a OrphanageModel on success', async () => {
+  test('Should throws if SaveOrphanage throws', async () => {
+    const { sut, saveOrphanageSpy } = makeSut()
+    jest.spyOn(saveOrphanageSpy, 'save').mockImplementationOnce(async () => Promise.reject(new Error()))
+    const httpResponse = await sut.handle(mockHttpRequest())
+    expect(httpResponse).toEqual(serverError(new Error()))
+  })
+
+  test('Should return a 200 on success', async () => {
     const { sut } = makeSut()
     const httpRequest = mockHttpRequest()
     const httpResponse = await sut.handle(httpRequest)
