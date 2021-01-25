@@ -21,7 +21,7 @@ class SaveOrphanageSpy implements SaveOrphanageRepository {
   params: SaveOrphanageModel
   async save (orphanageData: SaveOrphanageModel): Promise<OrphanageModel> {
     this.params = orphanageData
-    return Promise.resolve(null)
+    return Promise.resolve(Object.assign(orphanageData, {}, { id: 'any_id' }))
   }
 }
 
@@ -53,5 +53,12 @@ describe('DbSaveOrphanage Usecase', () => {
     const httpRequest = mockHttpRequest()
     const promise = sut.save(httpRequest.body)
     await expect(promise).rejects.toThrow()
+  })
+
+  test('Should return a orphanage on success', async () => {
+    const { sut } = makeSut()
+    const httpRequest = mockHttpRequest()
+    const response = await sut.save(httpRequest.body)
+    expect(response).toEqual(Object.assign(httpRequest.body, {}, { id: 'any_id' }))
   })
 })
