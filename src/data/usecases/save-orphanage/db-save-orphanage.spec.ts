@@ -1,6 +1,8 @@
 import { OrphanageModel } from '@/domain/models/orphanage'
-import { SaveOrphanage, SaveOrphanageModel } from '@/domain/usecases/save-orphanage'
+import { SaveOrphanageModel } from '@/domain/usecases/save-orphanage'
+import { SaveOrphanageRepository } from '@/data/protocols/save-orphanage-repository'
 import { HttpRequest } from '@/presentation/protocols/http/http'
+import { DbSaveOrphanage } from './db-save-orphanage'
 import faker from 'faker'
 
 const mockHttpRequest = (): HttpRequest<SaveOrphanageModel> => ({
@@ -15,10 +17,6 @@ const mockHttpRequest = (): HttpRequest<SaveOrphanageModel> => ({
   }
 })
 
-interface SaveOrphanageRepository{
-  save(orphanageData: SaveOrphanageModel): Promise<OrphanageModel>
-}
-
 class SaveOrphanageSpy implements SaveOrphanageRepository {
   params: SaveOrphanageModel
   async save (orphanageData: SaveOrphanageModel): Promise<OrphanageModel> {
@@ -30,14 +28,6 @@ class SaveOrphanageSpy implements SaveOrphanageRepository {
 type SutTypes = {
   saveOrphanageSpy: SaveOrphanageSpy
   sut: DbSaveOrphanage
-}
-
-class DbSaveOrphanage implements SaveOrphanage {
-  constructor (private readonly saveOrphanage: SaveOrphanageRepository) {}
-  async save (orphanage: SaveOrphanageModel): Promise<OrphanageModel> {
-    await this.saveOrphanage.save(orphanage)
-    return null
-  }
 }
 
 const makeSut = (): SutTypes => {
