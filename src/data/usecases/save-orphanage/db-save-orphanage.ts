@@ -5,7 +5,7 @@ import { SaveOrphanageRepository } from '@/data/protocols/save-orphanage-reposit
 export class DbSaveOrphanage implements SaveOrphanage {
   constructor (private readonly saveOrphanage: SaveOrphanageRepository) {}
   async save (orphanage: SaveOrphanageModel): Promise<OrphanageModel> {
-    await this.saveOrphanage.save(orphanage)
-    return null
+    const orphanageResult = await this.saveOrphanage.save(orphanage)
+    return orphanageResult
   }
 }
