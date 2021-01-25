@@ -1,0 +1,44 @@
+[{
+  "name":"test",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "root",
+  "database": "nlw-test",
+  "synchronize": true,
+  "logging": false,
+  "entities": [
+     "./src/typeorm/entities/**/*.ts"
+  ],
+  "migrations": [
+     "./src/typeorm/migrations/**/*.ts"
+  ],
+  "subscribers": [
+     "./src/typeorm/subscriber/**/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "./src/typeorm/migrations"
+  }
+},
+{
+  "name":"default",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "root",
+  "database": "nlw-test",
+  "synchronize": true,
+  "logging": false,
+  "entities": [
+     "./src/typeorm/entities/**/*.ts"
+  ],
+  "migrations": [
+     "./src/typeorm/migrations/**/*.ts"
+  ],
+  "subscribers": [
+     "./src/typeorm/subscriber/**/*.ts"
+  ]
+}
+]
