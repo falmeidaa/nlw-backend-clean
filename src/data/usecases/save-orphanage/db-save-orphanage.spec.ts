@@ -46,4 +46,12 @@ describe('DbSaveOrphanage Usecase', () => {
     await sut.save(httpRequest.body)
     expect(saveOrphanageSpy.params).toEqual(httpRequest.body)
   })
+
+  test('Should throws if SaveOrphanageRepository throws', async () => {
+    const { sut, saveOrphanageSpy } = makeSut()
+    jest.spyOn(saveOrphanageSpy, 'save').mockReturnValueOnce(Promise.reject(new Error()))
+    const httpRequest = mockHttpRequest()
+    const promise = sut.save(httpRequest.body)
+    await expect(promise).rejects.toThrow()
+  })
 })
