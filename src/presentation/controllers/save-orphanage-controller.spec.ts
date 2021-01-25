@@ -1,9 +1,9 @@
 import faker from 'faker'
-import { OrphanageModel } from '../../domain/models/orphanage'
-import { SaveOrphanage, SaveOrphanageModel } from '../../domain/usecases/save-orphanage'
-import { MissingParamError } from '../errors/missing-param-error'
-import { badRequest, ok, serverError } from '../helpers/http-helper'
-import { HttpRequest } from '../protocols/http/http'
+import { OrphanageModel } from '@/domain/models/orphanage'
+import { SaveOrphanage, SaveOrphanageModel } from '@/domain/usecases/save-orphanage'
+import { MissingParamError } from '@/presentation/errors/missing-param-error'
+import { badRequest, ok, serverError } from '@/presentation/helpers/http-helper'
+import { HttpRequest } from '@/presentation/protocols/http/http'
 import { SaveOrphanageController } from './save-orphanage-controller'
 
 const mockHttpRequest = (): HttpRequest<SaveOrphanageModel> => ({
