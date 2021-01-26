@@ -28,7 +28,7 @@
   "port": 5432,
   "username": "postgres",
   "password": "root",
-  "database": "nlw-test",
+  "database": "nlw",
   "synchronize": true,
   "logging": false,
   "entities": [
