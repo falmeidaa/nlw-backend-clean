@@ -19,8 +19,8 @@ type SutTypes = {
 class LogControllerDecorator implements Controller {
   constructor (private readonly controller: Controller) {}
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
-    await this.controller.handle(httpRequest)
-    return null
+    const httpResponse = await this.controller.handle(httpRequest)
+    return httpResponse
   }
 }
 
@@ -43,5 +43,16 @@ describe('LogController Decorator', () => {
     }
     await sut.handle(httpRequest)
     expect(controllerSpy.params).toEqual(httpRequest)
+  })
+
+  test('Should return the same result of the controller', async () => {
+    const { sut } = makeSut()
+    const httpRequest = {
+      body: {
+        name: faker.name.findName()
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse).toEqual(ok(httpRequest.body))
   })
 })
