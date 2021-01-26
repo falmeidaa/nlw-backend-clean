@@ -15,7 +15,7 @@ const mockOrphanage = (): SaveOrphanageModel => ({
 
 describe('Typeorm Orphanage Repository', () => {
   beforeAll(async () => {
-    await TypeOrmHelper.create('test')
+    await TypeOrmHelper.connect('test')
   })
 
   beforeEach(() => {

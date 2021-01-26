@@ -2,7 +2,7 @@ import { Connection, createConnection } from 'typeorm'
 
 const TypeOrmHelper = {
   connection: null as Connection,
-  async create (name: string) {
+  async connect (name: string) {
     this.connection = await createConnection(name)
   },
   async close () {

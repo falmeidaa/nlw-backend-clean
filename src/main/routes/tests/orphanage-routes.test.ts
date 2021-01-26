@@ -15,7 +15,7 @@ const orphanage = {
 
 describe('Orphanage Routes', () => {
   beforeAll(async () => {
-    await TypeOrmHelper.create('test')
+    await TypeOrmHelper.connect('test')
   })
 
   beforeEach(() => {
