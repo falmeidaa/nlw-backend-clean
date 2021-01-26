@@ -4,10 +4,12 @@
   "description": "NLW Clean",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.17.1",
     "pg": "^8.5.1",
     "typeorm": "^0.2.30"
   },
   "devDependencies": {
+    "@types/express": "^4.17.11",
     "@types/faker": "^5.1.5",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
