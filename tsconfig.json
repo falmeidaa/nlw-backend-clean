@@ -8,10 +8,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "rootDirs": ["src"],
-    "baseUrl": "src",
-    "paths": {
-      "@/*": ["*"]
-    }
   },
   "include": ["src"],
   "exclude": []

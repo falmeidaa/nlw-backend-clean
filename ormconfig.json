@@ -18,7 +18,8 @@
      "./src/typeorm/subscriber/**/*.ts"
   ],
   "cli": {
-    "migrationsDir": "./src/typeorm/migrations"
+    "migrationsDir": "./src/typeorm/migrations",
+    "entitiesDir":"./src/typeorm/entities"
   }
 },
 {

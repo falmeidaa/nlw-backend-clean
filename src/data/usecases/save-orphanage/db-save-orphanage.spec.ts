@@ -1,7 +1,7 @@
-import { OrphanageModel } from '@/domain/models/orphanage'
-import { SaveOrphanageModel } from '@/domain/usecases/save-orphanage'
-import { SaveOrphanageRepository } from '@/data/protocols/save-orphanage-repository'
-import { HttpRequest } from '@/presentation/protocols/http/http'
+import { SaveOrphanageModel } from '../../../domain/usecases/save-orphanage'
+import { OrphanageModel } from '../../../domain/models/orphanage'
+import { HttpRequest } from '../../../presentation/protocols/http'
+import { SaveOrphanageRepository } from '../../protocols/save-orphanage-repository'
 import { DbSaveOrphanage } from './db-save-orphanage'
 import faker from 'faker'
 

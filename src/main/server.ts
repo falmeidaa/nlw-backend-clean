@@ -1,4 +1,4 @@
-import TypeOrmHelper from '@/infra/db/typeorm/helpers/typeorm-helper'
+import TypeOrmHelper from '../infra/db/typeorm/helpers/typeorm-helper'
 import env from './config/env'
 
 TypeOrmHelper.connect(env.databaseName)

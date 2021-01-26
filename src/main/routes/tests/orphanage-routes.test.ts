@@ -1,5 +1,5 @@
-import TypeOrmHelper from '@/infra/db/typeorm/helpers/typeorm-helper'
-import app from '@/main/config/app'
+import TypeOrmHelper from '../../../infra/db/typeorm/helpers/typeorm-helper'
+import app from '../../config/app'
 import request from 'supertest'
 import faker from 'faker'
 
@@ -27,7 +27,7 @@ describe('Orphanage Routes', () => {
   })
   test('Should return an account on success', async () => {
     await request(app)
-      .post('/api/Orphanage')
+      .post('/api/orphanage')
       .send(orphanage)
       .expect(200)
   })

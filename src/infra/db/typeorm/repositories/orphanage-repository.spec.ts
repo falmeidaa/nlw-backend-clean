@@ -1,4 +1,5 @@
-import { SaveOrphanageModel } from '@/domain/usecases/save-orphanage'
+
+import { SaveOrphanageModel } from '../../../../domain/usecases/save-orphanage'
 import TypeOrmHelper from '../helpers/typeorm-helper'
 import { OrphanageTypeORMRepository } from './orphanage-repository'
 import faker from 'faker'

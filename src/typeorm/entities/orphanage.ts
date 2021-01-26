@@ -1,4 +1,4 @@
-import { OrphanageModel } from '@/domain/models/orphanage'
+import { OrphanageModel } from '../../domain/models/orphanage'
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity('orphanages')

@@ -1,6 +1,6 @@
-import { OrphanageModel } from '@/domain/models/orphanage'
-import { SaveOrphanage, SaveOrphanageModel } from '@/domain/usecases/save-orphanage'
-import { SaveOrphanageRepository } from '@/data/protocols/save-orphanage-repository'
+import { OrphanageModel } from '../../../domain/models/orphanage'
+import { SaveOrphanage, SaveOrphanageModel } from '../../../domain/usecases/save-orphanage'
+import { SaveOrphanageRepository } from '../../protocols/save-orphanage-repository'
 
 export class DbSaveOrphanage implements SaveOrphanage {
   constructor (private readonly saveOrphanage: SaveOrphanageRepository) {}
