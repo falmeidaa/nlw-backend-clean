@@ -1,4 +1,4 @@
-export type OrphanageModel = {
+export interface OrphanageModel {
   id: number
   name: string
   latitude: number
