@@ -1,4 +1,4 @@
-import { Connection, createConnection } from 'typeorm'
+import { Connection, createConnection, Repository } from 'typeorm'
 
 const TypeOrmHelper = {
   connection: null as Connection,
@@ -16,7 +16,7 @@ const TypeOrmHelper = {
       await repository.query(`DELETE FROM ${entity.tableName}`)
     })
   },
-  async getEntityRepository (entity) {
+  async getEntityRepository<T> (entity): Promise<Repository<T>> {
     const repository = await this.connection.getRepository(entity)
     return repository
   }

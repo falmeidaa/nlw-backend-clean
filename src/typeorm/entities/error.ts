@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
-@Entity('erros')
+@Entity('errors')
 export class Error {
   @PrimaryGeneratedColumn('increment')
   id: number
@@ -9,7 +9,7 @@ export class Error {
   date: Date
 
   @Column({ name: 'error_stack' })
-  errorStack: number
+  errorStack: string
 
   @Column()
   isResolved: boolean
