@@ -1,4 +1,4 @@
-import { OrphanageTypeORMRepository } from '../../infra/db/typeorm/repositories/orphanage-repository'
+import { OrphanageTypeORMRepository } from '../../infra/db/typeorm/repositories/orphanage/orphanage-repository'
 import { SaveOrphanageController } from '../../presentation/controllers/save-orphanage-controller'
 
 export const makeSaveOrphanageController = (): SaveOrphanageController => {
