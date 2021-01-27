@@ -1,15 +1,7 @@
-import { LogErrorRepository } from '../../../../../data/protocols/log-error-repository'
-import TypeOrmHelper from '../../helpers/typeorm-helper'
 import { Error as ErrorEntity } from '../../../../../typeorm/entities/error'
+import TypeOrmHelper from '../../helpers/typeorm-helper'
+import { LogErrorTypeORMRepository } from './log-error-repository'
 import faker from 'faker'
-
-class LogErrorTypeORMRepository implements LogErrorRepository {
-  async log (stack: string): Promise<void> {
-    const logErrorRepository = await TypeOrmHelper.getEntityRepository<ErrorEntity>(ErrorEntity)
-    const error = await logErrorRepository.save({ date: new Date(), errorStack: stack, isResolved: false })
-    console.log(error)
-  }
-}
 
 describe('Typeorm LogError Repository', () => {
   beforeAll(async () => {
