@@ -7,7 +7,7 @@ import TypeOrmHelper from '../../helpers/typeorm-helper'
 
 export class OrphanageTypeORMRepository implements SaveOrphanageRepository {
   async save (orphanageData: SaveOrphanageModel): Promise<OrphanageModel> {
-    const orphanageRepository = await TypeOrmHelper.getEntityRepository(Orphanage)
+    const orphanageRepository = await TypeOrmHelper.getEntityRepository<Orphanage>(Orphanage)
     const orphanage = await orphanageRepository.save(orphanageData)
     return orphanage
   }
