@@ -2,6 +2,7 @@ import { ok } from '../../presentation/helpers/http-helper'
 import { Controller } from '../../presentation/protocols/controller'
 import { HttpRequest, HttpResponse } from '../../presentation/protocols/http'
 import faker from 'faker'
+import { LogControllerDecorator } from './log-decorator'
 
 class ControllerSpy implements Controller {
   params: HttpRequest
@@ -14,14 +15,6 @@ class ControllerSpy implements Controller {
 type SutTypes = {
   sut: LogControllerDecorator
   controllerSpy: ControllerSpy
-}
-
-class LogControllerDecorator implements Controller {
-  constructor (private readonly controller: Controller) {}
-  async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
-    const httpResponse = await this.controller.handle(httpRequest)
-    return httpResponse
-  }
 }
 
 const makeSut = (): SutTypes => {
